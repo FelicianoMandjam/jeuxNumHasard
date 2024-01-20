@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+    crossorigin="anonymous"
+  />
+
+    <title>Jeux des numéros</title>
+</head>
+<body>
+    <div class="container text-center">
+    <h1 class="title text-primary text-bg-light">Jeux d'hasard </h1>
+
+    <h1 class="resultat_1"> </h1>
+    <h1 class="resultat_2"> </h1>
+    <button class="btn btn-success btn_2 w-75" type="submit">Tente ta chance !</button>
+
+    </div>
+
+    <script> 
+        const btn2= document.querySelector('.btn_2');
+        const r1= document.querySelector('.resultat_1');
+        const r2= document.querySelector('.resultat_2');
+
+
+       
+        function verif(){
+
+            const numAlea =Math.floor(Math.random() * 10)
+            // console.log(numAlea);
+            r1.innerHTML = 'Ton numéro de la chance est le numéro ' + numAlea 
+
+            btn2.addEventListener("click",()=>{
+            const numAlea2 = Math.floor(Math.random() * 10) 
+
+            if (numAlea === numAlea2 ){
+            r2.innerHTML = '< i class="text-success" > Tu es tombé sur le même numéro Bravo : </>  ' + numAlea2 
+            } 
+            else if (numAlea > numAlea2) {
+            r2.innerHTML = '(' + numAlea2 + ') <i class="text-danger"> Tu a perdu tu es tombé sur ' + numAlea2 + ' ton numéro est trop petit </i> ';
+            }
+            else if(numAlea < numAlea2) {
+                r2.innerHTML = '(' + numAlea2 + ') <i class="text-danger"> Tu a perdu tu es tombé sur ' + numAlea2 + ' ton numéro est trop grand </i> ';
+                
+            }
+            })
+        }
+        verif();
+    </script>
+</body>
+</html>
